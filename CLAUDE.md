@@ -9,7 +9,7 @@ Reglas para TODOS los proyectos. Cada proyecto tiene su CLAUDE.md que extiende e
 | Proyecto | Frontend | Backend |
 |----------|----------|---------|
 | Content Creator | 5173 | 8000 |
-| Gestor FIT | 5174 | 8001 |
+| The Engine | 5174 | 8001 |
 | Gestor Financiero | 5175 | 8002 |
 | Agency Manager | 5176 | 8003 |
 
@@ -22,7 +22,7 @@ ANTES de cualquier cambio: `pwd` + `ls`. Confirmar que coincide con el proyecto 
 | Proyecto | Carpeta | App folder |
 |----------|---------|------------|
 | Content Creator | `/Codigo/Content Creator/` | `content-creator-app/` |
-| Gestor FIT | `/Codigo/Gestor de Contenido FIT/` | `engine-app/` |
+| The Engine | `/Codigo/the-engine/` | `engine-app/` |
 | Gestor Financiero | `/Codigo/Gestor financiero/` | TBD |
 | Agency Manager | `/Codigo/agency-manager/` | TBD |
 
@@ -119,7 +119,7 @@ Cuando te den un bug: arreglalo. No pidas que te guien. Lee logs, errores, tests
 │   └── archive/                 <- Tareas completadas
 ├── agency-manager/
 ├── Content Creator/
-├── Gestor de Contenido FIT/
+├── the-engine/
 └── Gestor financiero/
 ```
 

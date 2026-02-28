@@ -1,4 +1,4 @@
-# CLAUDE.md - Gestor de Contenido FIT
+# CLAUDE.md - The Engine
 
 > Extiende `/Codigo/CLAUDE.md` (global). No repetir reglas globales aqui.
 
@@ -16,19 +16,19 @@
 
 ```bash
 # Arrancar frontend
-cd "/Codigo/Gestor de Contenido FIT/engine-app/frontend" && npm run dev
+cd "/Codigo/the-engine/engine-app/frontend" && npm run dev
 
 # Arrancar backend
-cd "/Codigo/Gestor de Contenido FIT/engine-app/backend" && uvicorn main:app --reload --port 8001
+cd "/Codigo/the-engine/engine-app/backend" && uvicorn main:app --reload --port 8001
 
 # Verificar build frontend
-cd "/Codigo/Gestor de Contenido FIT/engine-app/frontend" && npm run build
+cd "/Codigo/the-engine/engine-app/frontend" && npm run build
 
 # Verificar tipos TypeScript
-cd "/Codigo/Gestor de Contenido FIT/engine-app/frontend" && npx tsc --noEmit
+cd "/Codigo/the-engine/engine-app/frontend" && npx tsc --noEmit
 
 # Verificar backend arranca sin errores
-cd "/Codigo/Gestor de Contenido FIT/engine-app/backend" && python -c "from main import app; print('OK')"
+cd "/Codigo/the-engine/engine-app/backend" && python -c "from main import app; print('OK')"
 ```
 
 ## Testing
@@ -66,7 +66,7 @@ Ver `HOJA-DE-RUTA.md` para instrucciones detalladas y `SOURCE-OF-TRUTH.md` para 
 Hay 69 migraciones en `backend/db/migrations/` numeradas 001-069.
 Ejecutar en orden si hay problemas con tablas faltantes.
 
-## Errores conocidos de FIT
+## Errores conocidos
 
 1. Conflicto de puertos: este proyecto usa 5174/8001, NO 5173/8000 (ese es Content Creator)
 2. Python 3.9 deprecation warnings con google-auth: ignorar, es esperado
