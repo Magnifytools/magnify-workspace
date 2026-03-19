@@ -6,6 +6,7 @@ import { Copy, Download, Check, Eye, Code } from 'lucide-react';
 export default function MarkdownPreview({ markdown, onChange }) {
   const [copied, setCopied] = useState(false);
   const [view, setView] = useState('split'); // 'raw' | 'preview' | 'split'
+  const [filename, setFilename] = useState('converted');
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(markdown);
@@ -18,7 +19,7 @@ export default function MarkdownPreview({ markdown, onChange }) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'converted.md';
+    a.download = `${filename || 'converted'}.md`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -56,7 +57,17 @@ export default function MarkdownPreview({ markdown, onChange }) {
           </button>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 px-2 py-1 border border-gray-200 rounded text-sm">
+            <input
+              type="text"
+              value={filename}
+              onChange={(e) => setFilename(e.target.value)}
+              className="w-32 focus:outline-none bg-transparent text-gray-700"
+              placeholder="nombre"
+            />
+            <span className="text-gray-400">.md</span>
+          </div>
           <button
             onClick={handleCopy}
             className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 rounded transition-colors"
@@ -69,7 +80,7 @@ export default function MarkdownPreview({ markdown, onChange }) {
             className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 rounded transition-colors"
           >
             <Download size={16} />
-            Descargar .md
+            Descargar
           </button>
         </div>
       </div>

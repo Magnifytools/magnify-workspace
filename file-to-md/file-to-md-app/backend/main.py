@@ -43,6 +43,10 @@ class UrlRequest(BaseModel):
     url: str
 
 
+class BulkUrlRequest(BaseModel):
+    urls: list[str]
+
+
 class HtmlRequest(BaseModel):
     html: str
 
@@ -100,6 +104,31 @@ def convert_url(req: UrlRequest):
         raise HTTPException(status_code=422, detail=f"Error al convertir HTML: {str(e)}")
 
     return {"markdown": markdown, "source_url": url}
+
+
+@app.post("/api/convert/urls")
+def convert_urls_bulk(req: BulkUrlRequest):
+    results = []
+    for raw_url in req.urls:
+        url = raw_url.strip()
+        if not url:
+            continue
+        if not url.startswith(("http://", "https://")):
+            url = "https://" + url
+
+        try:
+            resp = http_requests.get(
+                url,
+                timeout=15,
+                headers={"User-Agent": "Mozilla/5.0 (compatible; FileToMD/1.0)"},
+            )
+            resp.raise_for_status()
+            md = convert_html(resp.text)
+            results.append({"url": url, "markdown": md, "error": None})
+        except Exception as e:
+            results.append({"url": url, "markdown": "", "error": str(e)})
+
+    return {"results": results}
 
 
 @app.post("/api/convert/html")
