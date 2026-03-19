@@ -15,9 +15,10 @@ from converters import (
 
 app = FastAPI(title="File to Markdown Converter")
 
+cors_origins = os.environ.get("CORS_ORIGINS", "http://localhost:5177,http://localhost:3000").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5177"],
+    allow_origins=cors_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -112,3 +113,17 @@ def convert_html_paste(req: HtmlRequest):
         raise HTTPException(status_code=422, detail=f"Error al convertir HTML: {str(e)}")
 
     return {"markdown": markdown}
+
+
+# --- Serve frontend static files in production ---
+static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
+if os.path.isdir(static_dir):
+    from fastapi.staticfiles import StaticFiles
+    from starlette.responses import FileResponse
+
+    @app.get("/{full_path:path}")
+    async def serve_frontend(full_path: str):
+        file_path = os.path.join(static_dir, full_path)
+        if full_path and os.path.isfile(file_path):
+            return FileResponse(file_path)
+        return FileResponse(os.path.join(static_dir, "index.html"))
