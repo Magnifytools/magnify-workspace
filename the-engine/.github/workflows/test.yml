@@ -50,6 +50,10 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Run frontend tests
+        run: npx vitest run --reporter=verbose
+        continue-on-error: true
+
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -64,3 +68,22 @@ jobs:
 
       - name: Lint backend (errors only)
         run: ruff check engine-app/backend/ --select E9,F63,F7,F82 --no-fix
+
+  security-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Frontend npm audit
+        run: cd engine-app/frontend && npm ci && npm audit --audit-level=high
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Backend pip audit
+        run: pip install pip-audit && pip-audit -r engine-app/backend/requirements.txt
