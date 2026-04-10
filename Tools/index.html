@@ -137,18 +137,15 @@
     line-height: 1;
     padding-left: 0.1em;
   }
-  .footer-logo .logo-brand {
-    font-size: 14px;
-    color: var(--muted);
+  .footer-logo-svg {
+    height: 22px;
+    width: auto;
+    display: block;
+    opacity: 0.55;
+    transition: opacity 0.3s;
   }
-  .footer-logo .logo-sub {
-    font-size: 9px;
-    color: var(--muted);
-    opacity: 0.6;
-  }
-  .footer-logo .logo-icon svg circle,
-  .footer-logo .logo-icon svg line {
-    opacity: 0.5;
+  .footer-logo:hover .footer-logo-svg {
+    opacity: 0.85;
   }
   .nav-cta {
     font-family: var(--sans);
@@ -541,7 +538,7 @@
      ═══════════════════════════════════════ */
   footer {
     border-top: 1px solid var(--border);
-    padding: 48px 48px 40px;
+    padding: 56px 48px 48px;
     max-width: calc(var(--max-w) + 96px);
     margin: 0 auto;
   }
@@ -549,22 +546,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 48px;
+    margin-bottom: 52px;
   }
   .footer-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
   }
   .footer-links {
     display: flex;
-    gap: 28px;
+    gap: 32px;
   }
   .footer-links a {
     font-family: var(--sans);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
-    color: var(--muted);
+    color: var(--body);
     transition: color 0.3s;
   }
   .footer-links a:hover { color: var(--white); }
@@ -748,22 +745,11 @@
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">
-      <div class="logo-icon">
-        <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
-          <circle cx="50" cy="50" r="30" stroke="#666" stroke-width="1.8" fill="none"/>
-          <line x1="10" y1="64" x2="90" y2="36" stroke="#555" stroke-width="1.4"/>
-          <circle cx="73" cy="40" r="4.5" fill="#666"/>
-          <circle cx="73" cy="40" r="2" fill="#0A0A0A"/>
-        </svg>
-      </div>
-      <div class="logo-text">
-        <span class="logo-brand">M&thinsp;Λ&thinsp;G&thinsp;N&thinsp;I&thinsp;F&thinsp;Y</span>
-        <span class="logo-sub">Tools</span>
-      </div>
-    </div>
+    <a href="https://magnify.ing" class="footer-logo">
+      <img src="magnify-logo-white.svg" alt="Magnify" class="footer-logo-svg">
+    </a>
     <div class="footer-links">
-      <a href="https://magnify.ing">magnify.ing</a>
+      <a href="/">Tools</a>
       <a href="https://mirror.magnifytools.com">Mirror</a>
       <a href="https://accent.magnifytools.com">Accent</a>
     </div>
