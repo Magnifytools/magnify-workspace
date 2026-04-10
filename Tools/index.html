@@ -99,7 +99,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 48px;
-    height: 72px;
+    height: 76px;
     background: rgba(10,10,10,0.88);
     backdrop-filter: blur(32px) saturate(180%);
     -webkit-backdrop-filter: blur(32px) saturate(180%);
@@ -108,11 +108,47 @@
   .nav-left {
     display: flex;
     align-items: center;
+    gap: 16px;
   }
-  .nav-logo-img {
-    height: 40px;
-    width: auto;
-    display: block;
+  .logo-icon {
+    flex-shrink: 0;
+  }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .logo-brand {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1;
+  }
+  .logo-sub {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--body);
+    line-height: 1;
+    padding-left: 0.1em;
+  }
+  .footer-logo .logo-brand {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .footer-logo .logo-sub {
+    font-size: 9px;
+    color: var(--muted);
+    opacity: 0.6;
+  }
+  .footer-logo .logo-icon svg circle,
+  .footer-logo .logo-icon svg line {
+    opacity: 0.5;
   }
   .nav-cta {
     font-family: var(--sans);
@@ -149,7 +185,7 @@
   }
   .hero-label {
     font-family: var(--sans);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     letter-spacing: 2.25px;
     text-transform: uppercase;
@@ -299,7 +335,7 @@
   }
   .tools-header .label {
     font-family: var(--sans);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -335,7 +371,7 @@
   }
   .tool-phase {
     font-family: var(--sans);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 1.8px;
     text-transform: uppercase;
@@ -515,11 +551,10 @@
     justify-content: space-between;
     margin-bottom: 48px;
   }
-  .footer-logo-img {
-    height: 20px;
-    width: auto;
-    display: block;
-    opacity: 0.5;
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
   .footer-links {
     display: flex;
@@ -527,14 +562,14 @@
   }
   .footer-links a {
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 400;
     color: var(--muted);
     transition: color 0.3s;
   }
   .footer-links a:hover { color: var(--white); }
   .footer-copy {
-    font-size: 11px;
+    font-size: 13px;
     color: rgba(255,255,255,0.3);
     text-align: center;
   }
@@ -547,7 +582,9 @@
       padding: 0 24px;
       height: 64px;
     }
-    .nav-logo-img { height: 32px; }
+    .logo-icon svg { width: 28px; height: 28px; }
+    .logo-brand { font-size: 13px !important; }
+    .logo-sub { font-size: 9px !important; }
     .nav-cta {
       font-size: 13px;
       padding: 9px 22px;
@@ -612,7 +649,18 @@
 <!-- ═══ NAV ═══ -->
 <nav>
   <a href="/" class="nav-left">
-    <img src="magnifytools-logo-dark.png" alt="Magnify Tools" class="nav-logo-img">
+    <div class="logo-icon">
+      <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="30" stroke="#FAFAFA" stroke-width="1.8" fill="none"/>
+        <line x1="10" y1="64" x2="90" y2="36" stroke="#777" stroke-width="1.4"/>
+        <circle cx="73" cy="40" r="4.5" fill="#FAFAFA"/>
+        <circle cx="73" cy="40" r="2" fill="#0A0A0A"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="logo-brand">M&thinsp;Λ&thinsp;G&thinsp;N&thinsp;I&thinsp;F&thinsp;Y</span>
+      <span class="logo-sub">Tools</span>
+    </div>
   </a>
   <a href="https://magnify.ing" class="nav-cta">Hablemos <span>↗</span></a>
 </nav>
@@ -700,7 +748,20 @@
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-inner">
-    <img src="magnifytools-logo-dark.png" alt="Magnify Tools" class="footer-logo-img">
+    <div class="footer-logo">
+      <div class="logo-icon">
+        <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="30" stroke="#666" stroke-width="1.8" fill="none"/>
+          <line x1="10" y1="64" x2="90" y2="36" stroke="#555" stroke-width="1.4"/>
+          <circle cx="73" cy="40" r="4.5" fill="#666"/>
+          <circle cx="73" cy="40" r="2" fill="#0A0A0A"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-brand">M&thinsp;Λ&thinsp;G&thinsp;N&thinsp;I&thinsp;F&thinsp;Y</span>
+        <span class="logo-sub">Tools</span>
+      </div>
+    </div>
     <div class="footer-links">
       <a href="https://magnify.ing">magnify.ing</a>
       <a href="https://mirror.magnifytools.com">Mirror</a>
