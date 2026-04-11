@@ -361,28 +361,18 @@
   }
   .tool-meta {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
-    color: var(--muted);
+    color: var(--sub);
     margin-bottom: 32px;
+  }
+  .tool-cta {
+    margin-top: 36px;
   }
   .tool-desc {
     font-size: 17px;
     color: var(--body);
     line-height: 1.75;
-  }
-  .tools-bottom {
-    border-top: 1px solid var(--border);
-    padding: 40px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .tools-bottom-text {
-    font-family: var(--serif);
-    font-size: clamp(18px, 2.5vw, 22px);
-    font-weight: 400;
-    color: var(--headline);
   }
 
   /* ═══════════════════════════════════════
@@ -443,6 +433,46 @@
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
+  }
+
+  /* ═══════════════════════════════════════
+     WHITE BLOCK
+     ═══════════════════════════════════════ */
+  .white-block {
+    background: #FFFFFF;
+    padding: 120px 48px;
+  }
+  .white-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 64px;
+  }
+  .white-block h2 {
+    font-family: var(--serif);
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bg);
+    line-height: 1.2;
+    flex-shrink: 0;
+  }
+  .white-right {
+    max-width: 460px;
+    padding-top: 6px;
+  }
+  .white-right p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #444444;
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+  .white-right strong {
+    color: var(--bg);
+    font-weight: 500;
   }
 
   /* ═══════════════════════════════════════
@@ -575,11 +605,13 @@
       gap: 56px;
       padding-bottom: 56px;
     }
-    .tools-bottom {
+
+    .white-block { padding: 80px 24px; }
+    .white-inner {
       flex-direction: column;
       gap: 24px;
-      align-items: flex-start;
     }
+    .white-right { max-width: 100%; }
 
     .yellow-block { padding: 80px 24px; }
     .yellow-deco { display: none; }
@@ -653,8 +685,7 @@
       <h2>El problema<br>no es la inversión.<br>Es la <em>percepción.</em></h2>
     </div>
     <div class="intro-right reveal reveal-delay-1">
-      <p>Inviertes en contenido, en SEO, en campañas. Pero hay una desconexión entre lo que tu marca quiere transmitir y lo que los buscadores, las IAs y tu audiencia realmente interpretan.</p>
-      <p>Estas herramientas te ayudan a ver esa desconexión. <strong>Sin registro, sin coste, sin compromiso.</strong></p>
+      <p>Hay una desconexión entre lo que tu marca quiere transmitir y lo que los buscadores, las IAs y tu audiencia realmente interpretan. Estas herramientas te ayudan a verla.</p>
     </div>
   </div>
 </section>
@@ -666,39 +697,46 @@
     <!-- MIRROR -->
     <div class="tool-card">
       <div class="tool-icon">
-        <svg viewBox="0 0 48 48" fill="none" stroke="#FAFAFA" stroke-width="1.2">
-          <circle cx="24" cy="24" r="16"/>
-          <line x1="4" y1="30" x2="44" y2="18"/>
-          <circle cx="36" cy="20" r="3" fill="#FAFAFA" stroke="none"/>
-          <circle cx="36" cy="20" r="1.2" fill="#0A0A0A" stroke="none"/>
+        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#FAFAFA" d="M371.31,512.747H71.335V69.154H371.31V512.747z M99.251,484.827h244.135V97.072H99.251V484.827z"/>
+          <path fill="#FAFAFA" d="M440.665,443.596H140.69V0h299.975V443.596z M168.608,415.678h244.138V27.918H168.608V415.678z"/>
         </svg>
       </div>
       <span class="tool-phase">Percepción de marca</span>
       <h3 class="tool-name">Mirror</h3>
       <p class="tool-meta">90 segundos · Sin registro</p>
       <p class="tool-desc">Comprueba cómo perciben tu marca los buscadores, las IAs y tu audiencia. Tres espejos, una realidad. Un índice de visibilidad y un diagnóstico que cambia cómo ves tu presencia digital.</p>
+      <div class="tool-cta">
+        <a href="https://mirror.magnifytools.com" class="cta-pill cta-pill--yellow">Analizar mi marca ↗</a>
+      </div>
     </div>
 
     <!-- ACCENT -->
     <div class="tool-card">
       <div class="tool-icon">
-        <svg viewBox="0 0 48 48" fill="none" stroke="#FAFAFA" stroke-width="1.2">
-          <circle cx="16" cy="24" r="12"/>
-          <circle cx="32" cy="24" r="12"/>
+        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#FAFAFA" d="M310 45 L205 467 L155 467 L260 45 Z"/>
         </svg>
       </div>
       <span class="tool-phase">Diagnóstico internacional</span>
       <h3 class="tool-name">Accent</h3>
       <p class="tool-meta">Análisis por locale · Sin registro</p>
       <p class="tool-desc">¿Tu web internacional tiene acento extranjero? Detecta si tus precios, fechas y formatos coinciden con el locale que declaras. Coherencia hreflang vs. contenido real.</p>
+      <div class="tool-cta">
+        <a href="https://accent.magnifytools.com" class="cta-pill cta-pill--yellow">Revisar mi web ↗</a>
+      </div>
     </div>
 
   </div>
-  <div class="tools-bottom reveal">
-    <span class="tools-bottom-text">Dos herramientas. Dos ángulos.</span>
-    <div class="cta-group">
-      <a href="https://mirror.magnifytools.com" class="cta-pill cta-pill--yellow">Probar Mirror ↗</a>
-      <a href="https://accent.magnifytools.com" class="cta-pill cta-pill--ghost">Probar Accent ↗</a>
+</section>
+
+<!-- ═══ WHITE BLOCK ═══ -->
+<section class="white-block">
+  <div class="white-inner">
+    <h2 class="reveal">Sin registro.<br>Sin coste.<br>Sin <em>compromiso.</em></h2>
+    <div class="white-right reveal reveal-delay-1">
+      <p>Inviertes en contenido, en SEO, en campañas. Pero hay una desconexión entre lo que tu marca quiere transmitir y lo que los buscadores, las IAs y tu audiencia realmente interpretan.</p>
+      <p><strong>Estas herramientas te ayudan a ver esa desconexión.</strong> Si lo que encuentras te preocupa, hablamos.</p>
     </div>
   </div>
 </section>
