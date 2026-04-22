@@ -1,8 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://magnifytools.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://magnifytools.com/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://magnifytools.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://magnifytools.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://magnifytools.com/"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://magnifytools.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://magnifytools.com/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://magnifytools.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://magnifytools.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://magnifytools.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://magnifytools.com/ca/</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://magnifytools.com/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://magnifytools.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://magnifytools.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://magnifytools.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://magnifytools.com/legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://magnifytools.com/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://magnifytools.com/en/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://magnifytools.com/ca/legal.html"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://magnifytools.com/en/legal.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://magnifytools.com/ca/legal.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://magnifytools.com/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://magnifytools.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://magnifytools.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://magnifytools.com/ca/privacy.html"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://magnifytools.com/en/privacy.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://magnifytools.com/ca/privacy.html</loc>
+    <priority>0.3</priority>
   </url>
 </urlset>
