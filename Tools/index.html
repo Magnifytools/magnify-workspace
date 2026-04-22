@@ -10,28 +10,36 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://magnifytools.com">
 <meta property="og:image" content="https://magnifytools.com/magnifytools-og.png">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ca_ES">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-512.png">
+<link rel="canonical" href="https://magnifytools.com/">
+<link rel="alternate" hreflang="es-ES" href="https://magnifytools.com/">
+<link rel="alternate" hreflang="en-US" href="https://magnifytools.com/en/">
+<link rel="alternate" hreflang="ca" href="https://magnifytools.com/ca/">
+<link rel="alternate" hreflang="x-default" href="https://magnifytools.com/">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-512.png">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
   @font-face {
     font-family: 'PP Neue Montreal';
-    src: url('fonts/PPNeueMontreal-Book.woff2') format('woff2');
+    src: url('/fonts/PPNeueMontreal-Book.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'PP Neue Montreal';
-    src: url('fonts/PPNeueMontreal-Medium.woff2') format('woff2');
+    src: url('/fonts/PPNeueMontreal-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'PP Neue Montreal';
-    src: url('fonts/PPNeueMontreal-Bold.woff2') format('woff2');
+    src: url('/fonts/PPNeueMontreal-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -165,6 +173,36 @@
   .nav-cta:hover {
     background: var(--yellow-hover);
     transform: translateY(-1px);
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .lang-switcher {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+  }
+  .lang-switcher li { line-height: 1; }
+  .lang-switcher a {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--body);
+    transition: color 0.2s;
+  }
+  .lang-switcher li.active a { color: var(--white); }
+  .lang-switcher a:hover { color: var(--white); }
+  @media (max-width: 640px) {
+    .nav-right { gap: 14px; }
+    .lang-switcher { gap: 10px; }
+    .lang-switcher a { font-size: 12px; }
   }
 
   /* ═══════════════════════════════════════
@@ -661,7 +699,14 @@
       <span class="logo-sub">Tools</span>
     </div>
   </a>
-  <a href="https://magnify.ing/" class="nav-cta">Hablemos <span>↗</span></a>
+  <div class="nav-right">
+    <ul class="lang-switcher" aria-label="Idioma">
+      <li class="active"><a hreflang="es-ES" href="/" aria-current="true">ES</a></li>
+      <li><a hreflang="en-US" href="/en/">EN</a></li>
+      <li><a hreflang="ca" href="/ca/">CA</a></li>
+    </ul>
+    <a href="https://magnify.ing/" class="nav-cta">Hablemos <span>↗</span></a>
+  </div>
 </nav>
 
 <!-- ═══ HERO ═══ -->
@@ -759,7 +804,7 @@
 <footer>
   <div class="footer-inner">
     <a href="https://magnify.ing/" class="footer-logo">
-      <img src="magnify-logo.svg" alt="Magnify" class="footer-logo-svg">
+      <img src="/magnify-logo.svg" alt="Magnify" class="footer-logo-svg">
     </a>
     <div class="footer-links">
       <a href="/">Tools</a>
