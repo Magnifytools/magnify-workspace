@@ -9,21 +9,21 @@
     <style><![CDATA[
       .bg          { fill: #0A0A0A; }
       .kicker      { font-family: "PP Neue Montreal","Inter","Helvetica Neue","Liberation Sans",sans-serif;
-                     font-weight: 500; font-size: 22px; letter-spacing: 6px; }
+                     font-weight: 500; font-size: 26px; letter-spacing: 6px; }
       .subtitle    { font-family: "DM Serif Display","Liberation Serif","Georgia",serif;
-                     font-style: italic; font-weight: 400; font-size: 22px; letter-spacing: 0.2px; }
+                     font-style: italic; font-weight: 400; font-size: 24px; letter-spacing: 0.2px; }
       .category    { font-family: "DM Serif Display","Liberation Serif","Georgia",serif;
-                     font-style: italic; font-weight: 400; font-size: 34px; }
+                     font-style: italic; font-weight: 400; font-size: 38px; }
       .item        { font-family: "PP Neue Montreal","Inter","Helvetica Neue","Liberation Sans",sans-serif;
-                     font-weight: 500; font-size: 22px; letter-spacing: 0.2px; }
+                     font-weight: 500; font-size: 24px; letter-spacing: 0.2px; }
       .footnote    { font-family: "PP Neue Montreal","Inter","Helvetica Neue","Liberation Sans",sans-serif;
-                     font-weight: 500; font-size: 14px; letter-spacing: 3px; }
+                     font-weight: 500; font-size: 20px; letter-spacing: 3px; }
       .legend      { font-family: "PP Neue Montreal","Inter","Helvetica Neue","Liberation Sans",sans-serif;
-                     font-weight: 500; font-size: 13px; letter-spacing: 2px; }
+                     font-weight: 500; font-size: 20px; letter-spacing: 2px; }
 
-      .gray-dim    { fill: #6E6E6E; }
-      .gray-mid    { fill: #9A9A9A; }
-      .gray-bright { fill: #D8D8D8; }
+      .gray-dim    { fill: #8A8A8A; }
+      .gray-mid    { fill: #BDBDBD; }
+      .gray-bright { fill: #ECECEC; }
       .white       { fill: #FAFAFA; }
       .yellow      { fill: #FFD600; }
     ]]></style>
@@ -35,99 +35,99 @@
   <!-- ============================================================ -->
   <!-- TOP META BAR                                                 -->
   <!-- ============================================================ -->
-  <text x="100" y="64" class="footnote gray-dim">MAGNIFY  ·  SEARCH BARCELONA 2026</text>
-  <text x="1820" y="64" class="footnote gray-dim" text-anchor="end">CASE: HEALTH &amp; WELLNESS E-COMMERCE</text>
+  <text x="100" y="68" class="footnote gray-dim">MAGNIFY  ·  SEARCH BARCELONA 2026</text>
+  <text x="1820" y="68" class="footnote gray-dim" text-anchor="end">CASO: E-COMMERCE DE SALUD Y BIENESTAR</text>
 
   <!-- Thin top rule -->
-  <line x1="100" y1="84" x2="1820" y2="84" stroke="#1F1F1F" stroke-width="1"/>
+  <line x1="100" y1="92" x2="1820" y2="92" stroke="#1F1F1F" stroke-width="1"/>
 
   <!-- ============================================================ -->
   <!-- VERTICAL DIVIDER                                             -->
   <!-- ============================================================ -->
-  <line x1="960" y1="120" x2="960" y2="980" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
+  <line x1="960" y1="128" x2="960" y2="970" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
 
   <!-- ============================================================ -->
   <!-- HEADERS                                                      -->
   <!-- ============================================================ -->
   <!-- LEFT: ALMACÉN -->
-  <text x="140" y="170" class="kicker gray-mid">ALMACÉN</text>
-  <text x="140" y="212" class="subtitle gray-dim">la lógica del inventario · un producto, una balda</text>
+  <text x="140" y="178" class="kicker gray-mid">ALMACÉN</text>
+  <text x="140" y="222" class="subtitle gray-dim">la lógica del inventario · un producto, una balda</text>
 
   <!-- RIGHT: PROBLEMA DEL COMPRADOR -->
-  <text x="1040" y="170" class="kicker yellow">PROBLEMA DEL COMPRADOR</text>
-  <text x="1040" y="212" class="subtitle gray-bright">la lógica de la intención · un producto, varios problemas</text>
+  <text x="1040" y="178" class="kicker yellow">PROBLEMA DEL COMPRADOR</text>
+  <text x="1040" y="222" class="subtitle gray-bright">la lógica de la intención · un producto, varios problemas</text>
 
   <!-- Header rule under each side -->
-  <line x1="140" y1="240" x2="880" y2="240" stroke="#2A2A2A" stroke-width="1"/>
-  <line x1="1040" y1="240" x2="1780" y2="240" stroke="#FFD600" stroke-width="1" opacity="0.35"/>
+  <line x1="140" y1="252" x2="880" y2="252" stroke="#3A3A3A" stroke-width="1"/>
+  <line x1="1040" y1="252" x2="1780" y2="252" stroke="#FFD600" stroke-width="1" opacity="0.35"/>
 
   <!-- ============================================================ -->
   <!-- LEFT TREE — ALMACÉN                                          -->
   <!-- ============================================================ -->
 
-  <!-- Block 1: SUPPLEMENTS -->
-  <text x="140" y="320" class="category gray-mid">Supplements</text>
-  <line x1="160" y1="345" x2="160" y2="455" stroke="#3A3A3A" stroke-width="1"/>
-  <line x1="160" y1="378" x2="184" y2="378" stroke="#3A3A3A" stroke-width="1"/>
-  <line x1="160" y1="413" x2="184" y2="413" stroke="#3A3A3A" stroke-width="1"/>
-  <line x1="160" y1="448" x2="184" y2="448" stroke="#3A3A3A" stroke-width="1"/>
-  <text x="200" y="385" class="item gray-bright">Magnesio</text>
-  <text x="200" y="420" class="item gray-bright">Melatonina</text>
-  <text x="200" y="455" class="item gray-bright">Vitamina D</text>
+  <!-- Block 1: SUPLEMENTOS -->
+  <text x="140" y="336" class="category gray-mid">Suplementos</text>
+  <line x1="160" y1="358" x2="160" y2="470" stroke="#5A5A5A" stroke-width="1"/>
+  <line x1="160" y1="391" x2="184" y2="391" stroke="#5A5A5A" stroke-width="1"/>
+  <line x1="160" y1="429" x2="184" y2="429" stroke="#5A5A5A" stroke-width="1"/>
+  <line x1="160" y1="467" x2="184" y2="467" stroke="#5A5A5A" stroke-width="1"/>
+  <text x="200" y="400" class="item gray-bright">Magnesio</text>
+  <text x="200" y="438" class="item gray-bright">Melatonina</text>
+  <text x="200" y="476" class="item gray-bright">Vitamina D</text>
 
-  <!-- Block 2: FOOD -->
-  <text x="140" y="540" class="category gray-mid">Food</text>
-  <line x1="160" y1="565" x2="160" y2="675" stroke="#3A3A3A" stroke-width="1"/>
-  <line x1="160" y1="598" x2="184" y2="598" stroke="#3A3A3A" stroke-width="1"/>
-  <line x1="160" y1="633" x2="184" y2="633" stroke="#3A3A3A" stroke-width="1"/>
-  <line x1="160" y1="668" x2="184" y2="668" stroke="#3A3A3A" stroke-width="1"/>
-  <text x="200" y="605" class="item gray-bright">Cúrcuma</text>
-  <text x="200" y="640" class="item gray-bright">Omega-3</text>
-  <text x="200" y="675" class="item gray-bright">Pescado azul en conserva</text>
+  <!-- Block 2: ALIMENTACIÓN -->
+  <text x="140" y="560" class="category gray-mid">Alimentación</text>
+  <line x1="160" y1="582" x2="160" y2="694" stroke="#5A5A5A" stroke-width="1"/>
+  <line x1="160" y1="615" x2="184" y2="615" stroke="#5A5A5A" stroke-width="1"/>
+  <line x1="160" y1="653" x2="184" y2="653" stroke="#5A5A5A" stroke-width="1"/>
+  <line x1="160" y1="691" x2="184" y2="691" stroke="#5A5A5A" stroke-width="1"/>
+  <text x="200" y="624" class="item gray-bright">Cúrcuma</text>
+  <text x="200" y="662" class="item gray-bright">Omega-3</text>
+  <text x="200" y="700" class="item gray-bright">Pescado azul en conserva</text>
 
-  <!-- Block 3: COSMETICS -->
-  <text x="140" y="760" class="category gray-mid">Cosmetics</text>
-  <line x1="160" y1="785" x2="160" y2="895" stroke="#3A3A3A" stroke-width="1"/>
-  <line x1="160" y1="818" x2="184" y2="818" stroke="#3A3A3A" stroke-width="1"/>
-  <line x1="160" y1="853" x2="184" y2="853" stroke="#3A3A3A" stroke-width="1"/>
-  <line x1="160" y1="888" x2="184" y2="888" stroke="#3A3A3A" stroke-width="1"/>
-  <text x="200" y="825" class="item gray-bright">Sérum facial</text>
-  <text x="200" y="860" class="item gray-bright">Crema antiarrugas</text>
-  <text x="200" y="895" class="item gray-bright">Aceite corporal</text>
+  <!-- Block 3: COSMÉTICA -->
+  <text x="140" y="784" class="category gray-mid">Cosmética</text>
+  <line x1="160" y1="806" x2="160" y2="918" stroke="#5A5A5A" stroke-width="1"/>
+  <line x1="160" y1="839" x2="184" y2="839" stroke="#5A5A5A" stroke-width="1"/>
+  <line x1="160" y1="877" x2="184" y2="877" stroke="#5A5A5A" stroke-width="1"/>
+  <line x1="160" y1="915" x2="184" y2="915" stroke="#5A5A5A" stroke-width="1"/>
+  <text x="200" y="848" class="item gray-bright">Sérum facial</text>
+  <text x="200" y="886" class="item gray-bright">Crema antiarrugas</text>
+  <text x="200" y="924" class="item gray-bright">Aceite corporal</text>
 
   <!-- ============================================================ -->
   <!-- RIGHT TREE — PROBLEMA DEL COMPRADOR                          -->
   <!-- ============================================================ -->
 
   <!-- Block 1: Cómo dormir mejor de forma natural -->
-  <text x="1040" y="320" class="category yellow">Cómo dormir mejor de forma natural</text>
-  <line x1="1060" y1="345" x2="1060" y2="455" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <line x1="1060" y1="378" x2="1084" y2="378" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <line x1="1060" y1="413" x2="1084" y2="413" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <line x1="1060" y1="448" x2="1084" y2="448" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <text x="1100" y="385" class="item white">Magnesio</text>
-  <text x="1100" y="420" class="item white">Melatonina</text>
-  <text x="1100" y="455" class="item white">Infusión nocturna</text>
+  <text x="1040" y="336" class="category yellow">Cómo dormir mejor de forma natural</text>
+  <line x1="1060" y1="358" x2="1060" y2="470" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <line x1="1060" y1="391" x2="1084" y2="391" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <line x1="1060" y1="429" x2="1084" y2="429" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <line x1="1060" y1="467" x2="1084" y2="467" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <text x="1100" y="400" class="item white">Magnesio</text>
+  <text x="1100" y="438" class="item white">Melatonina</text>
+  <text x="1100" y="476" class="item white">Infusión nocturna</text>
 
   <!-- Block 2: Alimentos antiinflamatorios -->
-  <text x="1040" y="540" class="category yellow">Alimentos antiinflamatorios</text>
-  <line x1="1060" y1="565" x2="1060" y2="675" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <line x1="1060" y1="598" x2="1084" y2="598" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <line x1="1060" y1="633" x2="1084" y2="633" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <line x1="1060" y1="668" x2="1084" y2="668" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <text x="1100" y="605" class="item white">Cúrcuma</text>
-  <text x="1100" y="640" class="item white">Omega-3</text>
-  <text x="1100" y="675" class="item white">Pescado azul en conserva</text>
+  <text x="1040" y="560" class="category yellow">Alimentos antiinflamatorios</text>
+  <line x1="1060" y1="582" x2="1060" y2="694" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <line x1="1060" y1="615" x2="1084" y2="615" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <line x1="1060" y1="653" x2="1084" y2="653" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <line x1="1060" y1="691" x2="1084" y2="691" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <text x="1100" y="624" class="item white">Cúrcuma</text>
+  <text x="1100" y="662" class="item white">Omega-3</text>
+  <text x="1100" y="700" class="item white">Pescado azul en conserva</text>
 
   <!-- Block 3: Rutina mínima para mujeres 40+ -->
-  <text x="1040" y="760" class="category yellow">Rutina mínima para mujeres 40+</text>
-  <line x1="1060" y1="785" x2="1060" y2="895" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <line x1="1060" y1="818" x2="1084" y2="818" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <line x1="1060" y1="853" x2="1084" y2="853" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <line x1="1060" y1="888" x2="1084" y2="888" stroke="#FFD600" stroke-width="1" opacity="0.55"/>
-  <text x="1100" y="825" class="item white">Magnesio</text>
-  <text x="1100" y="860" class="item white">Vitamina D</text>
-  <text x="1100" y="895" class="item white">Colágeno</text>
+  <text x="1040" y="784" class="category yellow">Rutina mínima para mujeres 40+</text>
+  <line x1="1060" y1="806" x2="1060" y2="918" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <line x1="1060" y1="839" x2="1084" y2="839" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <line x1="1060" y1="877" x2="1084" y2="877" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <line x1="1060" y1="915" x2="1084" y2="915" stroke="#FFD600" stroke-width="1" opacity="0.6"/>
+  <text x="1100" y="848" class="item white">Magnesio</text>
+  <text x="1100" y="886" class="item white">Vitamina D</text>
+  <text x="1100" y="924" class="item white">Colágeno</text>
 
   <!-- ============================================================ -->
   <!-- CROSS-TREE CONNECTIONS                                       -->
@@ -136,67 +136,67 @@
   <!-- Style: thin dotted yellow paths with low opacity.            -->
   <!-- ============================================================ -->
 
-  <!-- Magnesio: L Supplements(385) → R Cómo dormir(385) -->
-  <path d="M 360,378 C 660,378 760,378 1085,378"
+  <!-- Magnesio: L Suplementos(391) → R Cómo dormir(391) -->
+  <path d="M 380,391 C 660,391 760,391 1085,391"
         stroke="#FFD600" stroke-width="0.9" stroke-dasharray="2,5"
         fill="none" opacity="0.45"/>
 
-  <!-- Magnesio: L Supplements(385) → R Rutina mínima(818) -->
-  <path d="M 360,378 C 700,378 720,818 1085,818"
+  <!-- Magnesio: L Suplementos(391) → R Rutina mínima(848) -->
+  <path d="M 380,391 C 700,391 720,848 1085,848"
         stroke="#FFD600" stroke-width="0.9" stroke-dasharray="2,5"
         fill="none" opacity="0.30"/>
 
-  <!-- Melatonina: L Supplements(420) → R Cómo dormir(420) -->
-  <path d="M 360,413 C 660,413 760,413 1085,413"
+  <!-- Melatonina: L Suplementos(429) → R Cómo dormir(438) -->
+  <path d="M 380,429 C 660,429 760,438 1085,438"
         stroke="#FFD600" stroke-width="0.9" stroke-dasharray="2,5"
         fill="none" opacity="0.40"/>
 
-  <!-- Vitamina D: L Supplements(455) → R Rutina mínima(853) -->
-  <path d="M 360,448 C 700,448 720,853 1085,853"
+  <!-- Vitamina D: L Suplementos(467) → R Rutina mínima(886) -->
+  <path d="M 380,467 C 700,467 720,886 1085,886"
         stroke="#FFD600" stroke-width="0.9" stroke-dasharray="2,5"
         fill="none" opacity="0.30"/>
 
-  <!-- Cúrcuma: L Food(605) → R Alimentos(605) -->
-  <path d="M 360,598 C 660,598 760,598 1085,598"
+  <!-- Cúrcuma: L Alimentación(615) → R Alimentos antiinflamatorios(624) -->
+  <path d="M 380,615 C 660,615 760,624 1085,624"
         stroke="#FFD600" stroke-width="0.9" stroke-dasharray="2,5"
         fill="none" opacity="0.40"/>
 
-  <!-- Omega-3: L Food(640) → R Alimentos(640) -->
-  <path d="M 360,633 C 660,633 760,633 1085,633"
+  <!-- Omega-3: L Alimentación(653) → R Alimentos antiinflamatorios(662) -->
+  <path d="M 380,653 C 660,653 760,662 1085,662"
         stroke="#FFD600" stroke-width="0.9" stroke-dasharray="2,5"
         fill="none" opacity="0.40"/>
 
-  <!-- Pescado azul: L Food(675) → R Alimentos(675) -->
-  <path d="M 360,668 C 660,668 760,668 1085,668"
+  <!-- Pescado azul: L Alimentación(691) → R Alimentos antiinflamatorios(700) -->
+  <path d="M 380,691 C 660,691 760,700 1085,700"
         stroke="#FFD600" stroke-width="0.9" stroke-dasharray="2,5"
         fill="none" opacity="0.40"/>
 
   <!-- Tiny endpoint markers on connections (for editorial precision) -->
   <g fill="#FFD600" opacity="0.65">
-    <circle cx="360" cy="378" r="2"/>
-    <circle cx="360" cy="413" r="2"/>
-    <circle cx="360" cy="448" r="2"/>
-    <circle cx="360" cy="598" r="2"/>
-    <circle cx="360" cy="633" r="2"/>
-    <circle cx="360" cy="668" r="2"/>
-    <circle cx="1085" cy="378" r="2"/>
-    <circle cx="1085" cy="413" r="2"/>
-    <circle cx="1085" cy="598" r="2"/>
-    <circle cx="1085" cy="633" r="2"/>
-    <circle cx="1085" cy="668" r="2"/>
-    <circle cx="1085" cy="818" r="2"/>
-    <circle cx="1085" cy="853" r="2"/>
+    <circle cx="380" cy="391" r="2.2"/>
+    <circle cx="380" cy="429" r="2.2"/>
+    <circle cx="380" cy="467" r="2.2"/>
+    <circle cx="380" cy="615" r="2.2"/>
+    <circle cx="380" cy="653" r="2.2"/>
+    <circle cx="380" cy="691" r="2.2"/>
+    <circle cx="1085" cy="391" r="2.2"/>
+    <circle cx="1085" cy="438" r="2.2"/>
+    <circle cx="1085" cy="624" r="2.2"/>
+    <circle cx="1085" cy="662" r="2.2"/>
+    <circle cx="1085" cy="700" r="2.2"/>
+    <circle cx="1085" cy="848" r="2.2"/>
+    <circle cx="1085" cy="886" r="2.2"/>
   </g>
 
   <!-- ============================================================ -->
   <!-- BOTTOM CAPTION / INSIGHT                                     -->
   <!-- ============================================================ -->
-  <line x1="100" y1="980" x2="1820" y2="980" stroke="#1F1F1F" stroke-width="1"/>
+  <line x1="100" y1="970" x2="1820" y2="970" stroke="#2A2A2A" stroke-width="1"/>
 
-  <text x="140" y="1024" class="legend gray-dim">ARQUITECTURA EXCLUSIVA</text>
+  <text x="140" y="1014" class="legend gray-dim">ARQUITECTURA EXCLUSIVA</text>
   <text x="140" y="1050" class="subtitle gray-mid">un producto = una categoría</text>
 
-  <text x="1040" y="1024" class="legend yellow" opacity="0.85">ARQUITECTURA RELACIONAL</text>
+  <text x="1040" y="1014" class="legend yellow" opacity="0.85">ARQUITECTURA RELACIONAL</text>
   <text x="1040" y="1050" class="subtitle white">un producto = varios problemas</text>
 
 </svg>
