@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Magnify Tools — Eines gratuïtes de visibilitat de marca</title>
-<meta name="description" content="Eines gratuïtes de Magnify per diagnosticar la visibilitat real de la teva marca. Mirror, Accent i Compass: tres angles, un punt de partida clar.">
+<meta name="description" content="Eines gratuïtes de Magnify per diagnosticar la visibilitat real de la teva marca. Mirror, Accent, Compass i Orbit: quatre angles, un punt de partida clar.">
 <meta property="og:title" content="Magnify Tools — Diagnòstic de visibilitat de marca">
 <meta property="og:description" content="Eines gratuïtes per veure la desconnexió entre el que la teva marca vol transmetre i el que el món percep.">
 <meta property="og:type" content="website">
@@ -412,6 +412,24 @@
     color: var(--body);
     line-height: 1.75;
   }
+  .beta-pill {
+    display: inline-block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    background: rgba(255,214,0,0.1);
+    border: 1px solid rgba(255,214,0,0.4);
+    padding: 4px 10px;
+    border-radius: 100px;
+    vertical-align: middle;
+    margin-left: 14px;
+    position: relative;
+    top: -6px;
+  }
 
   /* ═══════════════════════════════════════
      CTA PILLS
@@ -790,6 +808,24 @@
       </div>
     </div>
 
+    <!-- ORBIT -->
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="256" cy="256" rx="220" ry="90" stroke="#FAFAFA" stroke-width="14" fill="none" transform="rotate(-22 256 256)"/>
+          <circle cx="256" cy="256" r="44" fill="#FAFAFA"/>
+          <circle cx="430" cy="170" r="28" fill="#FAFAFA"/>
+        </svg>
+      </div>
+      <span class="tool-phase">Diagnòstic de xarxa professional</span>
+      <h3 class="tool-name">Orbit <span class="beta-pill">Beta</span></h3>
+      <p class="tool-meta">El teu export de LinkedIn · Sense registre</p>
+      <p class="tool-desc">Puja el teu arxiu de dades de LinkedIn i descobreix la composició real de la teva xarxa professional. Processament 100% al teu navegador: res surt del teu equip.</p>
+      <div class="tool-cta">
+        <a href="https://orbit.magnifytools.com" class="cta-pill cta-pill--yellow">Analitzar la meva xarxa ↗</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -829,6 +865,7 @@
       <a href="https://mirror.magnifytools.com/ca">Mirror</a>
       <a href="https://accent.magnifytools.com">Accent</a>
       <a href="https://compass.magnifytools.com/en">Compass</a>
+      <a href="https://orbit.magnifytools.com">Orbit</a>
       <a href="/ca/legal.html">Legal</a>
       <a href="/ca/privacy.html">Privacitat</a>
     </div>

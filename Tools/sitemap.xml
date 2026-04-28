@@ -58,4 +58,9 @@
     <loc>https://magnifytools.com/ca/privacy.html</loc>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://orbit.magnifytools.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
