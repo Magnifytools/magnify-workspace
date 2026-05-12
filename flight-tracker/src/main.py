@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 import tomllib
 from pathlib import Path
@@ -12,9 +13,25 @@ from .search import search_watch
 from .storage import Storage
 
 
+_EMAIL_ENV_OVERRIDES = {
+    "smtp_host": "FT_SMTP_HOST",
+    "smtp_port": "FT_SMTP_PORT",
+    "username": "FT_SMTP_USERNAME",
+    "password": "FT_SMTP_PASSWORD",
+    "from_addr": "FT_SMTP_FROM",
+    "to_addr": "FT_SMTP_TO",
+}
+
+
 def load_config(path: Path) -> dict:
     with path.open("rb") as f:
-        return tomllib.load(f)
+        cfg = tomllib.load(f)
+    email = cfg.setdefault("email", {})
+    for key, env in _EMAIL_ENV_OVERRIDES.items():
+        val = os.environ.get(env)
+        if val:
+            email[key] = val
+    return cfg
 
 
 def evaluate_drop(
