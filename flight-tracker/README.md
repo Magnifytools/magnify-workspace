@@ -48,7 +48,26 @@ Por cada watch, en cada ejecucion:
    - El precio actual <= `target_price` (si lo defines).
 4. Tras avisar, **cooldown**: no vuelve a avisar hasta que el precio baje otro `cooldown_extra_drop_pct` % adicional. Evita spam.
 
-## Automatizar (cron en Mac)
+## Automatizar (opcion A): GitHub Actions
+
+Workflow ya configurado en `.github/workflows/flight-tracker.yml`. Corre cada 6h, usa `flight-tracker/config.actions.toml` y guarda el historial commiteando `data/prices.db` a esta misma rama.
+
+**Setup unico** (en GitHub -> Settings -> Secrets and variables -> Actions -> New repository secret):
+
+| Secret | Valor |
+|---|---|
+| `FT_SMTP_HOST` | `smtp.gmail.com` |
+| `FT_SMTP_PORT` | `587` |
+| `FT_SMTP_USERNAME` | tu email gmail |
+| `FT_SMTP_PASSWORD` | App Password de Gmail (16 chars) |
+| `FT_SMTP_FROM` | tu email gmail |
+| `FT_SMTP_TO` | email destino (puede ser el mismo) |
+
+Tras crearlos, ve a la pestana **Actions** del repo -> "Flight price tracker" -> **Run workflow** para hacer una corrida manual y verificar que todo va. Luego el cron se encarga.
+
+Caveat: Google Flights puede devolver 403 desde IPs de runners de GitHub. Si pasa, los logs del workflow lo dejaran claro y tocara plan B (Mac/Raspberry/VPS).
+
+## Automatizar (opcion B): cron en Mac
 
 `crontab -e` y anade:
 
