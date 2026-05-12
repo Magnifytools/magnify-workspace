@@ -1,0 +1,150 @@
+"""Entrypoint: load config, run all watches, persist prices, send alerts on drops."""
+
+from __future__ import annotations
+
+import argparse
+import sys
+import tomllib
+from pathlib import Path
+
+from .notifier import send_drop_alert
+from .search import search_watch
+from .storage import Storage
+
+
+def load_config(path: Path) -> dict:
+    with path.open("rb") as f:
+        return tomllib.load(f)
+
+
+def evaluate_drop(
+    *, current: float, prev_min: float | None, drop_pct: float, target_price: float | None
+) -> tuple[bool, float]:
+    """Returns (should_alert, observed_drop_pct_vs_min)."""
+    if prev_min is None:
+        return (False, 0.0)
+    observed_drop = (prev_min - current) / prev_min * 100 if prev_min > 0 else 0.0
+    if target_price is not None and current <= target_price:
+        return (True, observed_drop)
+    if observed_drop >= drop_pct:
+        return (True, observed_drop)
+    return (False, observed_drop)
+
+
+def passes_cooldown(
+    *, current: float, last_notif: tuple[float, str] | None, extra_drop_pct: float
+) -> bool:
+    if last_notif is None:
+        return True
+    last_price, _ = last_notif
+    if last_price <= 0:
+        return True
+    drop_since_last = (last_price - current) / last_price * 100
+    return drop_since_last >= extra_drop_pct
+
+
+def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
+    config = load_config(config_path)
+    settings = config.get("settings", {})
+    email_cfg = config.get("email", {})
+    watches = config.get("watches", [])
+    if not watches:
+        print("No hay watches configurados.", file=sys.stderr)
+        return 1
+
+    db_path = Path(settings.get("db_path", "data/prices.db"))
+    if not db_path.is_absolute():
+        db_path = config_path.parent / db_path
+    storage = Storage(db_path)
+    cooldown = float(settings.get("cooldown_extra_drop_pct", 3))
+
+    exit_code = 0
+    for w in watches:
+        name = w["name"]
+        try:
+            flight = search_watch(w)
+        except Exception as e:
+            print(f"[{name}] ERROR: {e}", file=sys.stderr)
+            exit_code = 2
+            continue
+
+        if flight is None:
+            print(f"[{name}] sin resultados.")
+            continue
+
+        prev_min = storage.min_price(name)
+        storage.record_price(
+            name,
+            flight.price,
+            airline=flight.airline,
+            flight_number=flight.flight_number,
+            departure=flight.departure.isoformat(),
+            arrival=flight.arrival.isoformat(),
+            duration_min=flight.duration_min,
+        )
+
+        marker = ""
+        if prev_min is not None:
+            delta = flight.price - prev_min
+            marker = f"  (min hist: {prev_min:.2f}, delta {delta:+.2f})"
+        print(
+            f"[{name}] {flight.airline} {flight.flight_number} "
+            f"{flight.departure.strftime('%H:%M')}  {flight.price:.2f} {flight.currency or ''}{marker}"
+        )
+
+        should_alert, observed = evaluate_drop(
+            current=flight.price,
+            prev_min=prev_min,
+            drop_pct=float(w.get("drop_pct", 5)),
+            target_price=w.get("target_price"),
+        )
+        if not should_alert:
+            if verbose and prev_min is not None:
+                print(f"  no-alert (caida {observed:.1f}% < umbral)")
+            continue
+
+        if not passes_cooldown(
+            current=flight.price,
+            last_notif=storage.last_notification(name),
+            extra_drop_pct=cooldown,
+        ):
+            print(f"  alert suprimida por cooldown")
+            continue
+
+        if dry_run:
+            print(f"  [dry-run] enviaria email: caida {observed:.1f}%")
+            continue
+
+        try:
+            send_drop_alert(
+                smtp_host=email_cfg["smtp_host"],
+                smtp_port=int(email_cfg["smtp_port"]),
+                username=email_cfg["username"],
+                password=email_cfg["password"],
+                from_addr=email_cfg["from_addr"],
+                to_addr=email_cfg["to_addr"],
+                watch_name=name,
+                flight=flight,
+                previous_min=prev_min,
+                drop_pct=observed,
+            )
+            storage.mark_notified(name, flight.price)
+            print(f"  email enviado (caida {observed:.1f}%)")
+        except Exception as e:
+            print(f"  ERROR enviando email: {e}", file=sys.stderr)
+            exit_code = 3
+
+    return exit_code
+
+
+def main() -> None:
+    p = argparse.ArgumentParser(description="Flight price tracker")
+    p.add_argument("--config", type=Path, default=Path("config.toml"))
+    p.add_argument("--dry-run", action="store_true", help="No envia emails")
+    p.add_argument("-v", "--verbose", action="store_true")
+    args = p.parse_args()
+    sys.exit(run(args.config, dry_run=args.dry_run, verbose=args.verbose))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,35 @@
+# Copy to config.toml and edit.
+# Cada [[watches]] es un vuelo que quieres trackear.
+
+[[watches]]
+name = "BCN-BER 24jun Vueling 10am"
+origin = "BCN"
+destination = "BER"
+date = "2026-06-24"
+# Ventana horaria de salida (24h). Para "sobre las 10am" usa 8-12.
+earliest_departure_hour = 8
+latest_departure_hour = 12
+airlines = ["VY"]         # IATA codes. [] o quita la linea para cualquiera.
+non_stop = true
+seat_class = "ECONOMY"    # ECONOMY | PREMIUM_ECONOMY | BUSINESS | FIRST
+adults = 1
+# Avisa si el precio actual baja >= drop_pct % vs el minimo historico.
+drop_pct = 5
+# O si baja por debajo de este absoluto (EUR/USD segun Google Flights).
+# target_price = 80
+
+[email]
+smtp_host = "smtp.gmail.com"
+smtp_port = 587
+username = "tu_email@gmail.com"
+# Para Gmail: usa un "App password", NO tu contrasena normal.
+# https://myaccount.google.com/apppasswords
+password = "xxxx xxxx xxxx xxxx"
+from_addr = "tu_email@gmail.com"
+to_addr = "tu_email@gmail.com"
+
+[settings]
+# Tras un aviso, no vuelvas a avisar para el mismo vuelo hasta que el precio
+# baje al menos otro N% mas. Evita spam.
+cooldown_extra_drop_pct = 3
+db_path = "data/prices.db"
