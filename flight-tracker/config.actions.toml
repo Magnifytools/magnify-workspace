@@ -1,0 +1,28 @@
+# Config usado por GitHub Actions. NO contiene secretos.
+# Email se rellena en runtime via secretos del repo (FT_SMTP_*).
+
+[[watches]]
+name = "BCN-BER 24jun Vueling 10am"
+origin = "BCN"
+destination = "BER"
+date = "2026-06-24"
+earliest_departure_hour = 8
+latest_departure_hour = 12
+airlines = ["VY"]
+non_stop = true
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+
+[email]
+smtp_host = "smtp.gmail.com"
+smtp_port = 587
+# username/password/from_addr/to_addr vienen de secretos (env vars).
+username = ""
+password = ""
+from_addr = ""
+to_addr = ""
+
+[settings]
+cooldown_extra_drop_pct = 3
+db_path = "data/prices.db"
