@@ -3,7 +3,7 @@ name: Flight price tracker
 on:
   schedule:
     # Cada 6 horas (UTC).
-    - cron: "17 */6 * * *"
+    - cron: "17 */3 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
