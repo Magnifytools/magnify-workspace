@@ -18,6 +18,9 @@ concurrency:
   group: flight-tracker
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   track:
     runs-on: ubuntu-latest
