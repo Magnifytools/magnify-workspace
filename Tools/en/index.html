@@ -530,6 +530,18 @@
     color: var(--bg);
     font-weight: 500;
   }
+  .white-block + .white-block {
+    padding-top: 0;
+  }
+  .footer-tagline {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+  }
 
   /* ═══════════════════════════════════════
      YELLOW BLOCK
@@ -861,6 +873,17 @@
   </div>
 </section>
 
+<!-- ═══ WHITE BLOCK — BETA ═══ -->
+<section class="white-block">
+  <div class="white-inner">
+    <h2 class="reveal">All in Beta.<br>Always improving.<br>Just like <em>life.</em></h2>
+    <div class="white-right reveal reveal-delay-1">
+      <p>Found a bug, missing something, something just feels off? Tell us. These tools live in continuous improvement and your eye is worth more than any roadmap.</p>
+      <p><strong>For all the AI we put behind them, we still need the human layer — yours.</strong></p>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ YELLOW BLOCK ═══ -->
 <section class="yellow-block">
   <div class="yellow-deco"></div>
@@ -892,6 +915,7 @@
       <a href="/en/privacy.html">Privacy</a>
     </div>
   </div>
+  <p class="footer-tagline">Made with AI Code, Human Heart and Someone's Brain.</p>
   <p class="footer-copy">© 2026 Magnify Digital S.L. · All tools are free and sign-up free.</p>
 </footer>
 
