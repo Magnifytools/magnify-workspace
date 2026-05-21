@@ -1,0 +1,54 @@
+name: Flight search (ad-hoc)
+
+on:
+  workflow_dispatch:
+    inputs:
+      origins:
+        description: "Origenes IATA (coma-separados). Ej: HND,NRT,KIX"
+        required: true
+        default: "HND,NRT,KIX,ITM"
+      destinations:
+        description: "Destinos IATA (coma-separados). Ej: ICN,GMP"
+        required: true
+        default: "ICN,GMP"
+      date:
+        description: "Fecha YYYY-MM-DD"
+        required: true
+        default: "2026-09-01"
+      adults:
+        description: "Numero de adultos"
+        required: true
+        default: "2"
+      non_stop:
+        description: "Solo vuelos directos"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: flight-tracker
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Search
+        run: |
+          python scripts/search.py \
+            --origins "${{ inputs.origins }}" \
+            --destinations "${{ inputs.destinations }}" \
+            --date "${{ inputs.date }}" \
+            --adults "${{ inputs.adults }}" \
+            ${{ inputs.non_stop && '--non-stop' || '' }}
