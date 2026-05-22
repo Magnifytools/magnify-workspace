@@ -8,7 +8,7 @@ import sys
 import tomllib
 from pathlib import Path
 
-from .notifier import send_drop_alert
+from .notifier import Alert, send_digest
 from .report import generate_report
 from .search import search_watch
 from .storage import Storage
@@ -77,6 +77,7 @@ def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
     cooldown = float(settings.get("cooldown_extra_drop_pct", 3))
 
     exit_code = 0
+    pending_alerts: list[Alert] = []
     for w in watches:
         name = w["name"]
         try:
@@ -110,11 +111,12 @@ def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
             f"{flight.departure.strftime('%H:%M')}  {flight.price:.2f} {flight.currency or ''}{marker}"
         )
 
+        target_price = w.get("target_price")
         should_alert, observed = evaluate_drop(
             current=flight.price,
             prev_min=prev_min,
             drop_pct=float(w.get("drop_pct", 5)),
-            target_price=w.get("target_price"),
+            target_price=target_price,
         )
         if not should_alert:
             if verbose and prev_min is not None:
@@ -129,28 +131,38 @@ def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
             print(f"  alert suprimida por cooldown")
             continue
 
-        if dry_run:
-            print(f"  [dry-run] enviaria email: caida {observed:.1f}%")
-            continue
-
-        try:
-            send_drop_alert(
-                smtp_host=email_cfg["smtp_host"],
-                smtp_port=int(email_cfg["smtp_port"]),
-                username=email_cfg["username"],
-                password=email_cfg["password"],
-                from_addr=email_cfg["from_addr"],
-                to_addr=email_cfg["to_addr"],
+        reason = "target" if target_price is not None and flight.price <= target_price else "drop"
+        pending_alerts.append(
+            Alert(
                 watch_name=name,
                 flight=flight,
                 previous_min=prev_min,
                 drop_pct=observed,
+                reason=reason,
             )
-            storage.mark_notified(name, flight.price)
-            print(f"  email enviado (caida {observed:.1f}%)")
-        except Exception as e:
-            print(f"  ERROR enviando email: {e}", file=sys.stderr)
-            exit_code = 3
+        )
+        print(f"  alert: {reason} ({observed:.1f}%)")
+
+    if pending_alerts:
+        if dry_run:
+            print(f"[dry-run] enviaría digest con {len(pending_alerts)} alerta(s)")
+        else:
+            try:
+                send_digest(
+                    smtp_host=email_cfg["smtp_host"],
+                    smtp_port=int(email_cfg["smtp_port"]),
+                    username=email_cfg["username"],
+                    password=email_cfg["password"],
+                    from_addr=email_cfg["from_addr"],
+                    to_addr=email_cfg["to_addr"],
+                    alerts=pending_alerts,
+                )
+                for a in pending_alerts:
+                    storage.mark_notified(a.watch_name, a.flight.price)
+                print(f"digest enviado ({len(pending_alerts)} alerta(s))")
+            except Exception as e:
+                print(f"ERROR enviando digest: {e}", file=sys.stderr)
+                exit_code = 3
 
     report_path = config_path.parent / "report.md"
     try:
