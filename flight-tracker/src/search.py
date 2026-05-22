@@ -74,6 +74,7 @@ def search_watch(watch: dict) -> BestFlight | None:
     )
 
     results = SearchFlights().search(filters) or []
+    results = [r for r in results if r.price is not None]
     if not results:
         return None
 
