@@ -1,23 +1,197 @@
 # Config usado por GitHub Actions. NO contiene secretos.
 # Email se rellena en runtime via secretos del repo (FT_SMTP_*).
+#
+# Vuelta del evento de Shenzhen a Barcelona.
+# 4 aeropuertos x 4 dias (vie 18 - lun 21 sep 2026) = 16 watches.
+# Alerta si: precio <= 600 (target_price absoluto) O si baja >=5% vs minimo historico.
+
+# --- Viernes 18 sep ---
 
 [[watches]]
-name = "BCN-BER 24jun Vueling 10am"
-origin = "BCN"
-destination = "BER"
-date = "2026-06-24"
-earliest_departure_hour = 8
-latest_departure_hour = 12
-airlines = ["VY"]
-non_stop = true
+name = "SZX-BCN 2026-09-18"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-18"
+non_stop = false
 seat_class = "ECONOMY"
 adults = 1
 drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "HKG-BCN 2026-09-18"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-18"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "CAN-BCN 2026-09-18"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-18"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "MFM-BCN 2026-09-18"
+origin = "MFM"
+destination = "BCN"
+date = "2026-09-18"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+# --- Sabado 19 sep ---
+
+[[watches]]
+name = "SZX-BCN 2026-09-19"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-19"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "HKG-BCN 2026-09-19"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-19"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "CAN-BCN 2026-09-19"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-19"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "MFM-BCN 2026-09-19"
+origin = "MFM"
+destination = "BCN"
+date = "2026-09-19"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+# --- Domingo 20 sep ---
+
+[[watches]]
+name = "SZX-BCN 2026-09-20"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-20"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "HKG-BCN 2026-09-20"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-20"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "CAN-BCN 2026-09-20"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-20"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "MFM-BCN 2026-09-20"
+origin = "MFM"
+destination = "BCN"
+date = "2026-09-20"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+# --- Lunes 21 sep ---
+
+[[watches]]
+name = "SZX-BCN 2026-09-21"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-21"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "HKG-BCN 2026-09-21"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-21"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "CAN-BCN 2026-09-21"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-21"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "MFM-BCN 2026-09-21"
+origin = "MFM"
+destination = "BCN"
+date = "2026-09-21"
+non_stop = false
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 600
 
 [email]
 smtp_host = "smtp.gmail.com"
 smtp_port = 587
-# username/password/from_addr/to_addr vienen de secretos (env vars).
 username = ""
 password = ""
 from_addr = ""
