@@ -75,6 +75,14 @@ class Storage:
                 ),
             )
 
+    def history(self, watch_name: str) -> list[tuple[str, float]]:
+        with self._conn() as c:
+            rows = c.execute(
+                "SELECT checked_at, price FROM price_history WHERE watch_name = ? ORDER BY checked_at",
+                (watch_name,),
+            ).fetchall()
+            return [(r["checked_at"], r["price"]) for r in rows]
+
     def min_price(self, watch_name: str) -> float | None:
         with self._conn() as c:
             row = c.execute(
