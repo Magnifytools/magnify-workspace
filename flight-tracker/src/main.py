@@ -9,6 +9,7 @@ import tomllib
 from pathlib import Path
 
 from .notifier import send_drop_alert
+from .report import generate_report
 from .search import search_watch
 from .storage import Storage
 
@@ -150,6 +151,13 @@ def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
         except Exception as e:
             print(f"  ERROR enviando email: {e}", file=sys.stderr)
             exit_code = 3
+
+    report_path = config_path.parent / "report.md"
+    try:
+        generate_report(watches, storage, report_path)
+        print(f"report: {report_path}")
+    except Exception as e:
+        print(f"ERROR generando report: {e}", file=sys.stderr)
 
     return exit_code
 

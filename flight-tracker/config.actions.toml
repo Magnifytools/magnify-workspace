@@ -2,8 +2,8 @@
 # Email se rellena en runtime via secretos del repo (FT_SMTP_*).
 #
 # Vuelta del evento de Shenzhen a Barcelona.
-# 4 aeropuertos x 4 dias (vie 18 - lun 21 sep 2026) = 16 watches.
-# Alerta si: precio <= 600 (target_price absoluto) O si baja >=5% vs minimo historico.
+# 3 aeropuertos x 4 dias (vie 18 - lun 21 sep 2026) = 12 watches.
+# Alerta si: precio <= 600 USD (target absoluto) o si baja >=5% vs minimo historico.
 
 # --- Viernes 18 sep ---
 
@@ -32,17 +32,6 @@ target_price = 600
 [[watches]]
 name = "CAN-BCN 2026-09-18"
 origin = "CAN"
-destination = "BCN"
-date = "2026-09-18"
-non_stop = false
-seat_class = "ECONOMY"
-adults = 1
-drop_pct = 5
-target_price = 600
-
-[[watches]]
-name = "MFM-BCN 2026-09-18"
-origin = "MFM"
 destination = "BCN"
 date = "2026-09-18"
 non_stop = false
@@ -86,17 +75,6 @@ adults = 1
 drop_pct = 5
 target_price = 600
 
-[[watches]]
-name = "MFM-BCN 2026-09-19"
-origin = "MFM"
-destination = "BCN"
-date = "2026-09-19"
-non_stop = false
-seat_class = "ECONOMY"
-adults = 1
-drop_pct = 5
-target_price = 600
-
 # --- Domingo 20 sep ---
 
 [[watches]]
@@ -132,17 +110,6 @@ adults = 1
 drop_pct = 5
 target_price = 600
 
-[[watches]]
-name = "MFM-BCN 2026-09-20"
-origin = "MFM"
-destination = "BCN"
-date = "2026-09-20"
-non_stop = false
-seat_class = "ECONOMY"
-adults = 1
-drop_pct = 5
-target_price = 600
-
 # --- Lunes 21 sep ---
 
 [[watches]]
@@ -170,17 +137,6 @@ target_price = 600
 [[watches]]
 name = "CAN-BCN 2026-09-21"
 origin = "CAN"
-destination = "BCN"
-date = "2026-09-21"
-non_stop = false
-seat_class = "ECONOMY"
-adults = 1
-drop_pct = 5
-target_price = 600
-
-[[watches]]
-name = "MFM-BCN 2026-09-21"
-origin = "MFM"
 destination = "BCN"
 date = "2026-09-21"
 non_stop = false
