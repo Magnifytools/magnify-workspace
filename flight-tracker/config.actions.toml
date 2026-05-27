@@ -145,6 +145,254 @@ adults = 1
 drop_pct = 5
 target_price = 600
 
+# ========================================================================
+# BUSINESS class — target 1500 USD (un chollazo en business a Europa)
+# ========================================================================
+
+[[watches]]
+name = "SZX-BCN 2026-09-18 BUSINESS"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-18"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+[[watches]]
+name = "HKG-BCN 2026-09-18 BUSINESS"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-18"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+[[watches]]
+name = "CAN-BCN 2026-09-18 BUSINESS"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-18"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+[[watches]]
+name = "SZX-BCN 2026-09-19 BUSINESS"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-19"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+[[watches]]
+name = "HKG-BCN 2026-09-19 BUSINESS"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-19"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+[[watches]]
+name = "CAN-BCN 2026-09-19 BUSINESS"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-19"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+[[watches]]
+name = "SZX-BCN 2026-09-20 BUSINESS"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-20"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+[[watches]]
+name = "HKG-BCN 2026-09-20 BUSINESS"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-20"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+[[watches]]
+name = "CAN-BCN 2026-09-20 BUSINESS"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-20"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+[[watches]]
+name = "SZX-BCN 2026-09-21 BUSINESS"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-21"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+[[watches]]
+name = "HKG-BCN 2026-09-21 BUSINESS"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-21"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+[[watches]]
+name = "CAN-BCN 2026-09-21 BUSINESS"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-21"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 1500
+
+# ========================================================================
+# FIRST class — target 2500 USD
+# ========================================================================
+
+[[watches]]
+name = "SZX-BCN 2026-09-18 FIRST"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-18"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
+[[watches]]
+name = "HKG-BCN 2026-09-18 FIRST"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-18"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
+[[watches]]
+name = "CAN-BCN 2026-09-18 FIRST"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-18"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
+[[watches]]
+name = "SZX-BCN 2026-09-19 FIRST"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-19"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
+[[watches]]
+name = "HKG-BCN 2026-09-19 FIRST"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-19"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
+[[watches]]
+name = "CAN-BCN 2026-09-19 FIRST"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-19"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
+[[watches]]
+name = "SZX-BCN 2026-09-20 FIRST"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-20"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
+[[watches]]
+name = "HKG-BCN 2026-09-20 FIRST"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-20"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
+[[watches]]
+name = "CAN-BCN 2026-09-20 FIRST"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-20"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
+[[watches]]
+name = "SZX-BCN 2026-09-21 FIRST"
+origin = "SZX"
+destination = "BCN"
+date = "2026-09-21"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
+[[watches]]
+name = "HKG-BCN 2026-09-21 FIRST"
+origin = "HKG"
+destination = "BCN"
+date = "2026-09-21"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
+[[watches]]
+name = "CAN-BCN 2026-09-21 FIRST"
+origin = "CAN"
+destination = "BCN"
+date = "2026-09-21"
+seat_class = "FIRST"
+adults = 1
+drop_pct = 5
+target_price = 2500
+
 [email]
 smtp_host = "smtp.gmail.com"
 smtp_port = 587
