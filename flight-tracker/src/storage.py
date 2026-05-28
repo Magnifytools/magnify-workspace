@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS price_history (
     flight_number TEXT,
     departure     TEXT,
     arrival       TEXT,
-    duration_min  INTEGER
+    duration_min  INTEGER,
+    layovers      TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_price_history_watch ON price_history(watch_name);
 
@@ -37,6 +38,9 @@ class Storage:
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         with self._conn() as c:
             c.executescript(SCHEMA)
+            cols = {r["name"] for r in c.execute("PRAGMA table_info(price_history)")}
+            if "layovers" not in cols:
+                c.execute("ALTER TABLE price_history ADD COLUMN layovers TEXT")
 
     @contextmanager
     def _conn(self) -> Iterator[sqlite3.Connection]:
@@ -57,12 +61,13 @@ class Storage:
         departure: str | None = None,
         arrival: str | None = None,
         duration_min: int | None = None,
+        layovers: str | None = None,
     ) -> None:
         with self._conn() as c:
             c.execute(
                 """INSERT INTO price_history
-                (watch_name, checked_at, price, airline, flight_number, departure, arrival, duration_min)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+                (watch_name, checked_at, price, airline, flight_number, departure, arrival, duration_min, layovers)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 (
                     watch_name,
                     datetime.now(timezone.utc).isoformat(),
@@ -72,6 +77,7 @@ class Storage:
                     departure,
                     arrival,
                     duration_min,
+                    layovers,
                 ),
             )
 
@@ -82,6 +88,15 @@ class Storage:
                 (watch_name,),
             ).fetchall()
             return [(r["checked_at"], r["price"]) for r in rows]
+
+    def latest_detail(self, watch_name: str) -> dict | None:
+        with self._conn() as c:
+            row = c.execute(
+                """SELECT price, airline, flight_number, departure, arrival, duration_min, layovers
+                FROM price_history WHERE watch_name = ? ORDER BY checked_at DESC LIMIT 1""",
+                (watch_name,),
+            ).fetchone()
+            return dict(row) if row else None
 
     def min_price(self, watch_name: str) -> float | None:
         with self._conn() as c:
