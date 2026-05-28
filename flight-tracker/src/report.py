@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -9,6 +10,32 @@ from .storage import Storage
 
 
 SPARK_CHARS = "▁▂▃▄▅▆▇█"
+
+
+def _fmt_dur(minutes) -> str:
+    if minutes is None:
+        return "—"
+    h, m = divmod(int(minutes), 60)
+    return f"{h}h {m:02d}m"
+
+
+def _fmt_route(detail: dict | None) -> str:
+    if not detail:
+        return "—"
+    raw = detail.get("layovers")
+    if raw is None:
+        return detail.get("airline") or "—"  # dato de escala aún no guardado
+    try:
+        layovers = json.loads(raw)
+    except (json.JSONDecodeError, TypeError):
+        layovers = []
+    stops = (
+        " · ".join(f"{code} {_fmt_dur(mins)}" for code, mins in layovers)
+        if layovers
+        else "directo"
+    )
+    airline = detail.get("airline") or ""
+    return f"{airline} · {stops}"
 
 
 def _sparkline(values: list[float]) -> str:
@@ -64,24 +91,27 @@ def generate_report(watches: list[dict], storage: Storage, output_path: Path) ->
         lines.append(f"| {origin}    | " + " | ".join(cells) + " |")
 
     lines.append("\n## Historial por watch\n")
-    lines.append("| Watch | Min | Último | Δ vs min | Runs | Tendencia |")
-    lines.append("|-------|----:|-------:|---------:|-----:|-----------|")
+    lines.append("| Watch | Min | Último | Δ vs min | Runs | Dur. | Ruta (último) | Tendencia |")
+    lines.append("|-------|----:|-------:|---------:|-----:|-----:|---------------|-----------|")
     for w in watches:
         name = w["name"]
         hist = storage.history(name)
         if not hist:
-            lines.append(f"| {name} | — | — | — | 0 | — |")
+            lines.append(f"| {name} | — | — | — | 0 | — | — | — |")
             continue
         prices = [p for _, p in hist]
         mn, last = min(prices), prices[-1]
         delta_pct = (last - mn) / mn * 100 if mn > 0 else 0
+        detail = storage.latest_detail(name)
+        dur = _fmt_dur(detail.get("duration_min")) if detail else "—"
+        route = _fmt_route(detail)
         lines.append(
-            f"| {name} | {mn:.0f} | {last:.0f} | {delta_pct:+.1f}% | {len(prices)} | `{_sparkline(prices)}` |"
+            f"| {name} | {mn:.0f} | {last:.0f} | {delta_pct:+.1f}% | {len(prices)} | {dur} | {route} | `{_sparkline(prices)}` |"
         )
 
     lines.append("\n## Lectura\n")
     lines.append("- `↓` = bajó vs lectura anterior, `↑` = subió, `=` = sin cambio.")
     lines.append("- Sparkline muestra todas las lecturas históricas (más antigua → más reciente).")
-    lines.append("- Cada bloque más alto = precio más alto en ese momento.")
+    lines.append("- Ruta = aerolínea · escalas con su aeropuerto y duración (o «directo»).")
 
     output_path.write_text("\n".join(lines) + "\n", encoding="utf-8")

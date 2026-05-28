@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import sys
 import tomllib
@@ -100,6 +101,7 @@ def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
             departure=flight.departure.isoformat(),
             arrival=flight.arrival.isoformat(),
             duration_min=flight.duration_min,
+            layovers=json.dumps(flight.layovers),
         )
 
         marker = ""
@@ -139,6 +141,7 @@ def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
                 previous_min=prev_min,
                 drop_pct=observed,
                 reason=reason,
+                seat_class=w.get("seat_class", "ECONOMY"),
             )
         )
         print(f"  alert: {reason} ({observed:.1f}%)")

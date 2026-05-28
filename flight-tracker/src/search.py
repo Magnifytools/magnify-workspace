@@ -29,6 +29,7 @@ class BestFlight:
     departure: datetime
     arrival: datetime
     stops: int
+    layovers: list[tuple[str, int]]  # (airport_code, layover_minutes)
 
 
 def _enum_or_raise(enum_cls, name: str, kind: str):
@@ -80,6 +81,16 @@ def search_watch(watch: dict) -> BestFlight | None:
 
     best = min(results, key=lambda r: r.price)
     first_leg = best.legs[0]
+
+    layovers: list[tuple[str, int]] = []
+    for prev_leg, next_leg in zip(best.legs, best.legs[1:]):
+        airport = prev_leg.arrival_airport
+        code = airport.name if hasattr(airport, "name") else str(airport)
+        minutes = int(
+            (next_leg.departure_datetime - prev_leg.arrival_datetime).total_seconds() // 60
+        )
+        layovers.append((code, minutes))
+
     return BestFlight(
         price=float(best.price),
         currency=best.currency,
@@ -89,4 +100,5 @@ def search_watch(watch: dict) -> BestFlight | None:
         departure=first_leg.departure_datetime,
         arrival=best.legs[-1].arrival_datetime,
         stops=int(best.stops),
+        layovers=layovers,
     )
