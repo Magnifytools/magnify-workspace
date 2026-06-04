@@ -404,3 +404,5 @@ to_addr = ""
 [settings]
 cooldown_extra_drop_pct = 3
 db_path = "data/prices.db"
+# false = suprime envio de emails pero sigue guardando precios y actualizando report.md
+notify_enabled = false
