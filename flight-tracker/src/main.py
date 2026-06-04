@@ -76,6 +76,7 @@ def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
         db_path = config_path.parent / db_path
     storage = Storage(db_path)
     cooldown = float(settings.get("cooldown_extra_drop_pct", 3))
+    notify_enabled = bool(settings.get("notify_enabled", True))
 
     exit_code = 0
     pending_alerts: list[Alert] = []
@@ -149,6 +150,8 @@ def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
     if pending_alerts:
         if dry_run:
             print(f"[dry-run] enviaría digest con {len(pending_alerts)} alerta(s)")
+        elif not notify_enabled:
+            print(f"notify_enabled=false → digest suprimido ({len(pending_alerts)} alerta(s))")
         else:
             try:
                 send_digest(
