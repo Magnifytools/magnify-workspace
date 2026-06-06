@@ -84,6 +84,61 @@ adults = 1
 drop_pct = 5
 target_price = 200
 
+# ========================================================================
+# BUSINESS — solo en tramos largos (BCN-IST/AYT y vuelta).
+# IST-AYT son 1h, no merece la pena. FIRST no existe en estas rutas.
+# ========================================================================
+
+[[watches]]
+name = "BCN-IST 2026-09-29 BUSINESS"
+origin = "BCN"
+destination = "IST"
+date = "2026-09-29"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 400
+
+[[watches]]
+name = "BCN-AYT 2026-09-29 BUSINESS"
+origin = "BCN"
+destination = "AYT"
+date = "2026-09-29"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "BCN-AYT 2026-10-01 BUSINESS"
+origin = "BCN"
+destination = "AYT"
+date = "2026-10-01"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "AYT-BCN 2026-10-04 BUSINESS"
+origin = "AYT"
+destination = "BCN"
+date = "2026-10-04"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 600
+
+[[watches]]
+name = "AYT-BCN 2026-10-05 BUSINESS"
+origin = "AYT"
+destination = "BCN"
+date = "2026-10-05"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 600
+
 [email]
 smtp_host = "smtp.gmail.com"
 smtp_port = 587
