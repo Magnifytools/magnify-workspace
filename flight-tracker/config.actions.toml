@@ -1,397 +1,88 @@
 # Config usado por GitHub Actions. NO contiene secretos.
 # Email se rellena en runtime via secretos del repo (FT_SMTP_*).
 #
-# Vuelta del evento de Shenzhen a Barcelona.
-# 3 aeropuertos x 4 dias (vie 18 - lun 21 sep 2026) = 12 watches.
-# Alerta si: precio <= 600 USD (target absoluto) o si baja >=5% vs minimo historico.
+# Evento Antalya 1-4 octubre 2026. Pareja llega IST 29 sep.
+# Combinaciones a comparar:
+#   A) David BCN->IST 29, juntos IST->AYT 1-oct.
+#   B) David BCN->AYT 1-oct directo, pareja IST->AYT 1-oct.
+#   C) Ambos a Antalya el 29 (David BCN->AYT, pareja IST->AYT).
+# Vuelta: AYT->BCN el 4 o 5 oct.
 
-# --- Viernes 18 sep ---
+# --- Ida ---
 
 [[watches]]
-name = "SZX-BCN 2026-09-18"
-origin = "SZX"
-destination = "BCN"
-date = "2026-09-18"
-non_stop = false
+name = "BCN-IST 2026-09-29"
+origin = "BCN"
+destination = "IST"
+date = "2026-09-29"
 seat_class = "ECONOMY"
 adults = 1
 drop_pct = 5
-target_price = 600
+target_price = 120
 
 [[watches]]
-name = "HKG-BCN 2026-09-18"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-18"
-non_stop = false
+name = "BCN-AYT 2026-09-29"
+origin = "BCN"
+destination = "AYT"
+date = "2026-09-29"
 seat_class = "ECONOMY"
 adults = 1
 drop_pct = 5
-target_price = 600
+target_price = 200
 
 [[watches]]
-name = "CAN-BCN 2026-09-18"
-origin = "CAN"
-destination = "BCN"
-date = "2026-09-18"
-non_stop = false
+name = "BCN-AYT 2026-10-01"
+origin = "BCN"
+destination = "AYT"
+date = "2026-10-01"
 seat_class = "ECONOMY"
 adults = 1
 drop_pct = 5
-target_price = 600
+target_price = 200
 
-# --- Sabado 19 sep ---
+# --- Tramo IST->AYT (pareja, o ambos en opcion A) ---
 
 [[watches]]
-name = "SZX-BCN 2026-09-19"
-origin = "SZX"
-destination = "BCN"
-date = "2026-09-19"
-non_stop = false
+name = "IST-AYT 2026-09-29"
+origin = "IST"
+destination = "AYT"
+date = "2026-09-29"
 seat_class = "ECONOMY"
 adults = 1
 drop_pct = 5
-target_price = 600
+target_price = 70
 
 [[watches]]
-name = "HKG-BCN 2026-09-19"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-19"
-non_stop = false
+name = "IST-AYT 2026-10-01"
+origin = "IST"
+destination = "AYT"
+date = "2026-10-01"
 seat_class = "ECONOMY"
 adults = 1
 drop_pct = 5
-target_price = 600
+target_price = 70
+
+# --- Vuelta (ambos, AYT->BCN) ---
 
 [[watches]]
-name = "CAN-BCN 2026-09-19"
-origin = "CAN"
+name = "AYT-BCN 2026-10-04"
+origin = "AYT"
 destination = "BCN"
-date = "2026-09-19"
-non_stop = false
+date = "2026-10-04"
 seat_class = "ECONOMY"
 adults = 1
 drop_pct = 5
-target_price = 600
-
-# --- Domingo 20 sep ---
+target_price = 200
 
 [[watches]]
-name = "SZX-BCN 2026-09-20"
-origin = "SZX"
+name = "AYT-BCN 2026-10-05"
+origin = "AYT"
 destination = "BCN"
-date = "2026-09-20"
-non_stop = false
+date = "2026-10-05"
 seat_class = "ECONOMY"
 adults = 1
 drop_pct = 5
-target_price = 600
-
-[[watches]]
-name = "HKG-BCN 2026-09-20"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-20"
-non_stop = false
-seat_class = "ECONOMY"
-adults = 1
-drop_pct = 5
-target_price = 600
-
-[[watches]]
-name = "CAN-BCN 2026-09-20"
-origin = "CAN"
-destination = "BCN"
-date = "2026-09-20"
-non_stop = false
-seat_class = "ECONOMY"
-adults = 1
-drop_pct = 5
-target_price = 600
-
-# --- Lunes 21 sep ---
-
-[[watches]]
-name = "SZX-BCN 2026-09-21"
-origin = "SZX"
-destination = "BCN"
-date = "2026-09-21"
-non_stop = false
-seat_class = "ECONOMY"
-adults = 1
-drop_pct = 5
-target_price = 600
-
-[[watches]]
-name = "HKG-BCN 2026-09-21"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-21"
-non_stop = false
-seat_class = "ECONOMY"
-adults = 1
-drop_pct = 5
-target_price = 600
-
-[[watches]]
-name = "CAN-BCN 2026-09-21"
-origin = "CAN"
-destination = "BCN"
-date = "2026-09-21"
-non_stop = false
-seat_class = "ECONOMY"
-adults = 1
-drop_pct = 5
-target_price = 600
-
-# ========================================================================
-# BUSINESS class — target 1500 USD (un chollazo en business a Europa)
-# ========================================================================
-
-[[watches]]
-name = "SZX-BCN 2026-09-18 BUSINESS"
-origin = "SZX"
-destination = "BCN"
-date = "2026-09-18"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-[[watches]]
-name = "HKG-BCN 2026-09-18 BUSINESS"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-18"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-[[watches]]
-name = "CAN-BCN 2026-09-18 BUSINESS"
-origin = "CAN"
-destination = "BCN"
-date = "2026-09-18"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-[[watches]]
-name = "SZX-BCN 2026-09-19 BUSINESS"
-origin = "SZX"
-destination = "BCN"
-date = "2026-09-19"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-[[watches]]
-name = "HKG-BCN 2026-09-19 BUSINESS"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-19"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-[[watches]]
-name = "CAN-BCN 2026-09-19 BUSINESS"
-origin = "CAN"
-destination = "BCN"
-date = "2026-09-19"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-[[watches]]
-name = "SZX-BCN 2026-09-20 BUSINESS"
-origin = "SZX"
-destination = "BCN"
-date = "2026-09-20"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-[[watches]]
-name = "HKG-BCN 2026-09-20 BUSINESS"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-20"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-[[watches]]
-name = "CAN-BCN 2026-09-20 BUSINESS"
-origin = "CAN"
-destination = "BCN"
-date = "2026-09-20"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-[[watches]]
-name = "SZX-BCN 2026-09-21 BUSINESS"
-origin = "SZX"
-destination = "BCN"
-date = "2026-09-21"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-[[watches]]
-name = "HKG-BCN 2026-09-21 BUSINESS"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-21"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-[[watches]]
-name = "CAN-BCN 2026-09-21 BUSINESS"
-origin = "CAN"
-destination = "BCN"
-date = "2026-09-21"
-seat_class = "BUSINESS"
-adults = 1
-drop_pct = 5
-target_price = 1500
-
-# ========================================================================
-# FIRST class — target 2500 USD
-# ========================================================================
-
-[[watches]]
-name = "SZX-BCN 2026-09-18 FIRST"
-origin = "SZX"
-destination = "BCN"
-date = "2026-09-18"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
-
-[[watches]]
-name = "HKG-BCN 2026-09-18 FIRST"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-18"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
-
-[[watches]]
-name = "CAN-BCN 2026-09-18 FIRST"
-origin = "CAN"
-destination = "BCN"
-date = "2026-09-18"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
-
-[[watches]]
-name = "SZX-BCN 2026-09-19 FIRST"
-origin = "SZX"
-destination = "BCN"
-date = "2026-09-19"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
-
-[[watches]]
-name = "HKG-BCN 2026-09-19 FIRST"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-19"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
-
-[[watches]]
-name = "CAN-BCN 2026-09-19 FIRST"
-origin = "CAN"
-destination = "BCN"
-date = "2026-09-19"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
-
-[[watches]]
-name = "SZX-BCN 2026-09-20 FIRST"
-origin = "SZX"
-destination = "BCN"
-date = "2026-09-20"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
-
-[[watches]]
-name = "HKG-BCN 2026-09-20 FIRST"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-20"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
-
-[[watches]]
-name = "CAN-BCN 2026-09-20 FIRST"
-origin = "CAN"
-destination = "BCN"
-date = "2026-09-20"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
-
-[[watches]]
-name = "SZX-BCN 2026-09-21 FIRST"
-origin = "SZX"
-destination = "BCN"
-date = "2026-09-21"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
-
-[[watches]]
-name = "HKG-BCN 2026-09-21 FIRST"
-origin = "HKG"
-destination = "BCN"
-date = "2026-09-21"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
-
-[[watches]]
-name = "CAN-BCN 2026-09-21 FIRST"
-origin = "CAN"
-destination = "BCN"
-date = "2026-09-21"
-seat_class = "FIRST"
-adults = 1
-drop_pct = 5
-target_price = 2500
+target_price = 200
 
 [email]
 smtp_host = "smtp.gmail.com"
@@ -404,5 +95,4 @@ to_addr = ""
 [settings]
 cooldown_extra_drop_pct = 3
 db_path = "data/prices.db"
-# false = suprime envio de emails pero sigue guardando precios y actualizando report.md
-notify_enabled = false
+notify_enabled = true
