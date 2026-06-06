@@ -15,6 +15,18 @@ name = "BCN-IST 2026-09-29"
 origin = "BCN"
 destination = "IST"
 date = "2026-09-29"
+non_stop = true
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 120
+
+[[watches]]
+name = "BCN-IST 2026-09-30"
+origin = "BCN"
+destination = "IST"
+date = "2026-09-30"
+non_stop = true
 seat_class = "ECONOMY"
 adults = 1
 drop_pct = 5
@@ -25,6 +37,16 @@ name = "BCN-AYT 2026-09-29"
 origin = "BCN"
 destination = "AYT"
 date = "2026-09-29"
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 200
+
+[[watches]]
+name = "BCN-AYT 2026-09-30"
+origin = "BCN"
+destination = "AYT"
+date = "2026-09-30"
 seat_class = "ECONOMY"
 adults = 1
 drop_pct = 5
@@ -94,10 +116,32 @@ name = "BCN-IST 2026-09-29 BUSINESS"
 origin = "BCN"
 destination = "IST"
 date = "2026-09-29"
+non_stop = true
 seat_class = "BUSINESS"
 adults = 1
 drop_pct = 5
 target_price = 400
+
+[[watches]]
+name = "BCN-IST 2026-09-30 BUSINESS"
+origin = "BCN"
+destination = "IST"
+date = "2026-09-30"
+non_stop = true
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 400
+
+[[watches]]
+name = "BCN-AYT 2026-09-30 BUSINESS"
+origin = "BCN"
+destination = "AYT"
+date = "2026-09-30"
+seat_class = "BUSINESS"
+adults = 1
+drop_pct = 5
+target_price = 600
 
 [[watches]]
 name = "BCN-AYT 2026-09-29 BUSINESS"
@@ -151,3 +195,7 @@ to_addr = ""
 cooldown_extra_drop_pct = 3
 db_path = "data/prices.db"
 notify_enabled = true
+# Forzar mostrar precios en EUR. Si Google devuelve EUR no se aplica.
+# Si devuelve USD, multiplica por usd_to_eur antes de almacenar/evaluar.
+display_currency = "EUR"
+usd_to_eur = 0.92

@@ -77,6 +77,8 @@ def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
     storage = Storage(db_path)
     cooldown = float(settings.get("cooldown_extra_drop_pct", 3))
     notify_enabled = bool(settings.get("notify_enabled", True))
+    display_currency = settings.get("display_currency")
+    usd_to_eur = float(settings.get("usd_to_eur", 0.92))
 
     exit_code = 0
     pending_alerts: list[Alert] = []
@@ -92,6 +94,10 @@ def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
         if flight is None:
             print(f"[{name}] sin resultados.")
             continue
+
+        if display_currency == "EUR" and flight.currency == "USD":
+            flight.price = round(flight.price * usd_to_eur, 2)
+            flight.currency = "EUR"
 
         prev_min = storage.min_price(name)
         storage.record_price(
