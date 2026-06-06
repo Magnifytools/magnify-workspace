@@ -1,10 +1,8 @@
 name: Flight price tracker
 
 on:
-  # Cron desactivado: decisión de vuelo tomada (Sep 2026). Reactivar
-  # descomentando las dos lineas siguientes si quieres reanudar el track.
-  # schedule:
-  #   - cron: "17 */3 * * *"
+  schedule:
+    - cron: "17 */3 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
