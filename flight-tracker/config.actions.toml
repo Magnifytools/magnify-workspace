@@ -183,6 +183,74 @@ adults = 1
 drop_pct = 5
 target_price = 600
 
+# ========================================================================
+# Viaje China sep 2026 — Seoul -> Xi'an/Chengdu -> Shenzhen.
+# 6 sep: salida ICN (Seul) hacia primera ciudad china.
+# 12 o 13 sep: ultima ciudad -> SZX (estar en Shenzhen para el 14).
+# Plan A preferido: ICN->XIY (Xi'an) + tren a Chengdu + CTU->SZX.
+# Watches contrarios (ICN->CTU, XIY->SZX) tambien por si plan se invierte.
+# ========================================================================
+
+[[watches]]
+name = "ICN-XIY 2026-09-06"
+origin = "ICN"
+destination = "XIY"
+date = "2026-09-06"
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 200
+
+[[watches]]
+name = "ICN-CTU 2026-09-06"
+origin = "ICN"
+destination = "CTU"
+date = "2026-09-06"
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 200
+
+[[watches]]
+name = "CTU-SZX 2026-09-12"
+origin = "CTU"
+destination = "SZX"
+date = "2026-09-12"
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 100
+
+[[watches]]
+name = "CTU-SZX 2026-09-13"
+origin = "CTU"
+destination = "SZX"
+date = "2026-09-13"
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 100
+
+[[watches]]
+name = "XIY-SZX 2026-09-12"
+origin = "XIY"
+destination = "SZX"
+date = "2026-09-12"
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 100
+
+[[watches]]
+name = "XIY-SZX 2026-09-13"
+origin = "XIY"
+destination = "SZX"
+date = "2026-09-13"
+seat_class = "ECONOMY"
+adults = 1
+drop_pct = 5
+target_price = 100
+
 [email]
 smtp_host = "smtp.gmail.com"
 smtp_port = 587
