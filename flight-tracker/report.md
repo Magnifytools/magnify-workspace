@@ -1,6 +1,6 @@
 # Flight prices — auto-generated
 
-_Última actualización: 2026-06-24 15:13 UTC_
+_Última actualización: 2026-06-24 17:19 UTC_
 
 
 ## Precio actual (USD)
