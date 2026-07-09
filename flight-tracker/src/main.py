@@ -140,6 +140,11 @@ def run(config_path: Path, *, dry_run: bool, verbose: bool) -> int:
             print(f"  alert suprimida por cooldown")
             continue
 
+        if not w.get("notify", True):
+            if verbose:
+                print(f"  alert suprimida por notify=false")
+            continue
+
         reason = "target" if target_price is not None and flight.price <= target_price else "drop"
         pending_alerts.append(
             Alert(
