@@ -8,12 +8,13 @@ Reglas para TODOS los proyectos. Cada proyecto tiene su CLAUDE.md que extiende e
 
 | Proyecto | Frontend | Backend |
 |----------|----------|---------|
-| Content Creator | 5173 | 8000 |
+| Verso | 5173 | 8000 |
 | The Engine | 5174 | 8001 |
 | Gestor Financiero | 5175 | 8002 |
-| Agency Manager | 5176 | 8003 |
+| The Agency | 5177 | 8004 |
+| Magnify Tools | 5181 | — |
 
-Nuevos proyectos: 5177+/8004+
+Nuevos proyectos: 5182+/8005+
 
 ## Verificacion de Proyecto (OBLIGATORIO)
 
@@ -21,10 +22,11 @@ ANTES de cualquier cambio: `pwd` + `ls`. Confirmar que coincide con el proyecto 
 
 | Proyecto | Carpeta | App folder |
 |----------|---------|------------|
-| Content Creator | `/Codigo/Content Creator/` | `content-creator-app/` |
+| Verso | `/Codigo/Verso/` | `verso-app/` |
 | The Engine | `/Codigo/the-engine/` | `engine-app/` |
 | Gestor Financiero | `/Codigo/Gestor financiero/` | TBD |
-| Agency Manager | `/Codigo/agency-manager/` | TBD |
+| The Agency | `/Codigo/the-agency/` | `frontend/` + `backend/` |
+| Magnify Tools | `/Codigo/.claude/worktrees/<branch>/Tools/` | `Tools/` (HTML estático) |
 
 Si la carpeta NO coincide: STOP. Cambiar a la correcta.
 
@@ -34,6 +36,7 @@ Si la carpeta NO coincide: STOP. Cambiar a la correcta.
 - No Laziness: buscar causa raiz. Sin fixes temporales. Estandar senior.
 - Verification Before Done: nunca marcar completo sin demostrar que funciona.
 - Context Preservation: actualizar archivos de estado tras cambios significativos.
+- No Datos Decorativos: NUNCA almacenar datos que no se usen de verdad. Si un campo existe, debe tener un flujo real que lo lea, lo escriba y lo muestre. Si no hay integración real, NO crear el campo. Aplica a TODOS los proyectos.
 
 ## Workflow: Planning con Archivos
 
@@ -117,8 +120,8 @@ Cuando te den un bug: arreglalo. No pidas que te guien. Lee logs, errores, tests
 │   ├── lessons.md               <- Errores -> Reglas
 │   ├── current/                 <- Planificacion tarea activa
 │   └── archive/                 <- Tareas completadas
-├── agency-manager/
-├── Content Creator/
+├── the-agency/
+├── Verso/
 ├── the-engine/
 └── Gestor financiero/
 ```
@@ -137,3 +140,6 @@ Cuando te den un bug: arreglalo. No pidas que te guien. Lee logs, errores, tests
 3. Python 3.9 deprecation warnings con google-auth: esperado, no intentar "arreglar".
 4. `api.del` no existe en algunos clientes HTTP. Usar `api.delete`.
 5. ProtectedRoute no debe duplicar fetch de `/me`. Usar AuthContext.
+6. Supabase aplica límite implícito de 1000 filas en todo SELECT. En cualquier tabla que pueda crecer >1000 filas, paginar con `.range(offset, offset+PAGE-1)` en bucle. No paginar → datos fantasma y duplicados silenciosos.
+7. Al añadir un campo a una columna JSONB, grep por `_normalize*`/`_transform*` en las rutas — un serializer intermedio puede strippear el campo antes de devolverlo.
+8. Métricas acumulables de GSC (clicks, impresiones) se **suman** en la ventana de análisis. Para posición, media ponderada por impresiones. Nunca un solo snapshot.
