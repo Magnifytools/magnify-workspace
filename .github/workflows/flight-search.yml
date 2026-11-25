@@ -32,7 +32,7 @@ env:
 
 jobs:
   search:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, vps]
     defaults:
       run:
         working-directory: flight-tracker
